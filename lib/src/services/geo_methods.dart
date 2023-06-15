@@ -99,7 +99,7 @@ class GeoMethods {
       }
       final uri = Uri.https(
         'proxy.cors.sh',
-        '/maps.googleapis.com/maps/api/place/autocomplete/json',
+        '/https://maps.googleapis.com/maps/api/place/autocomplete/json',
         queryParameters,
       );
       try {
@@ -125,7 +125,7 @@ class GeoMethods {
         placeId.isNotEmpty, "placeId can't be declared as an empty `String`");
     final uri = Uri.https(
       'proxy.cors.sh',
-      '/maps.googleapis.com/maps/api/place/details/json',
+      '/https://maps.googleapis.com/maps/api/place/details/json',
       {
         'place_id': placeId,
         'fields': 'geometry',
@@ -152,7 +152,7 @@ class GeoMethods {
   Future<Address?> geoLocatePlace({required Coords coords}) async {
     final uri = Uri.https(
       'proxy.cors.sh',
-      '/maps.googleapis.com/maps/api/geocode/json',
+      '/https://maps.googleapis.com/maps/api/geocode/json',
       {
         'latlng': coords.toString(),
         'result_type': 'street_address',
@@ -200,8 +200,8 @@ class GeoMethods {
         }
       });
     }
-    final uri = Uri.https(
-        'proxy.cors.sh', '/maps.googleapis.com/maps/api/directions/json', {
+    final uri = Uri.https('proxy.cors.sh',
+        '/https://maps.googleapis.com/maps/api/directions/json', {
       'origin': origin.coords.toString(),
       'destination': destination.coords.toString(),
       'language': language,
