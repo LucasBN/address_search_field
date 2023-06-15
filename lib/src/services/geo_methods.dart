@@ -98,8 +98,8 @@ class GeoMethods {
         queryParameters['components'] = 'country:$countryCode';
       }
       final uri = Uri.https(
-        'proxy.cors.sh/maps.googleapis.com',
-        '/maps/api/place/autocomplete/json',
+        'proxy.cors.sh',
+        '/maps.googleapis.com/maps/api/place/autocomplete/json',
         queryParameters,
       );
       try {
@@ -124,8 +124,8 @@ class GeoMethods {
     assert(
         placeId.isNotEmpty, "placeId can't be declared as an empty `String`");
     final uri = Uri.https(
-      'proxy.cors.sh/maps.googleapis.com',
-      '/maps/api/place/details/json',
+      'proxy.cors.sh',
+      '/maps.googleapis.com/maps/api/place/details/json',
       {
         'place_id': placeId,
         'fields': 'geometry',
@@ -151,8 +151,8 @@ class GeoMethods {
   /// Calls Google Geocode API sending `latitude` and `longitude` of [Coords].
   Future<Address?> geoLocatePlace({required Coords coords}) async {
     final uri = Uri.https(
-      'proxy.cors.sh/maps.googleapis.com',
-      '/maps/api/geocode/json',
+      'proxy.cors.sh',
+      '/maps.googleapis.com/maps/api/geocode/json',
       {
         'latlng': coords.toString(),
         'result_type': 'street_address',
@@ -201,7 +201,7 @@ class GeoMethods {
       });
     }
     final uri = Uri.https(
-        'proxy.cors.sh/maps.googleapis.com', '/maps/api/directions/json', {
+        'proxy.cors.sh', '/maps.googleapis.com/maps/api/directions/json', {
       'origin': origin.coords.toString(),
       'destination': destination.coords.toString(),
       'language': language,
